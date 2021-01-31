@@ -2,7 +2,7 @@ import re
 import os
 
 INPUT_DIR = 'Server2'
-lineformat = re.compile(r"""(?P<ipaddress>IP\d{7}) (.+ ){2,3}\[(?P<dateandtime>\d{2}\/[A-Za-z]{3}\/\d{4}:\d{2}:\d{2}:\d{2} (\+|\-)\d{4})\] ((\"(GET|POST|OPTIONS|HEAD|PUT|DELETE|CONNECT|TRACE|PATCH)) (?P<url>.*)(?P<protocol>.+)\s*\") (?P<statuscode>\-|\d{3}) (?P<bytessent>\-|\d+)""", re.IGNORECASE)
+lineformat = re.compile(r"""(?P<ipaddress>IP\d{7}) (.+ ){2,3}\[(?P<dateandtime>\d{2}\/[A-Za-z]{3}\/\d{4}:\d{2}:\d{2}:\d{2} (\+|\-)\d{4})\] ((\"(?P<method>GET|POST|OPTIONS|HEAD|PUT|DELETE|CONNECT|TRACE|PATCH|SEARCH)) (?P<url>.*)(?P<protocol>.+)\s*\") (?P<statuscode>\-|\d{3}) (?P<bytessent>\-|\d+)""", re.IGNORECASE)
 
 parsed = 0
 lines = 0
